@@ -3,7 +3,7 @@
 <head>  
 <meta charset="UTF-8">  
 <title>判断鼠标进入的方向，js判断划入方向</title>  
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>  
+<script src="jquery.min.js"></script>  
 <script>  
 $(function() {  
     $(".box").on("mouseenter mouseleave",function(e) {  
@@ -13,7 +13,7 @@ $(function() {
         var y=(e.pageY-this.offsetTop-(h/2))*(h>w?(w/h):1);  
         var dirNum=Math.round((((Math.atan2(y,x)*(180/Math.PI))+180)/90)+3)%4;  
         var eventType = e.type;  
-        var aPos=[{left:0,top:-200},{left:200,top:0},{left:0,top:200},{left:-200,top:0}];  
+        var aPos=[{left:0,top:-h},{left:w,top:0},{left:0,top:h},{left:-w,top:0}];  
         if(eventType == 'mouseenter'){  
             $(".box2").css(aPos[dirNum]).stop(true,false).animate({left:0,top:0},200); 
         }else{  
