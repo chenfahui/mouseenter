@@ -15,9 +15,9 @@ $(function() {
                 eventType = e.type,
                 aPos=[{left:0,top:-h},{left:w,top:0},{left:0,top:h},{left:-w,top:0}];  
         if(eventType == 'mouseenter'){  
-            $(".box2").css(aPos[dirNum]).stop(true,false).animate({left:0,top:0},200); 
+            $(this).find(".box2").css(aPos[dirNum]).stop(true,false).animate({left:0,top:0},200); 
         }else{  
-            $(".box2").stop(true,false).animate(aPos[dirNum],200); 
+            $(this).find(".box2").stop(true,false).animate(aPos[dirNum],200); 
         }  
     });  
 });   
