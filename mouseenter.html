@@ -7,13 +7,13 @@
 <script>  
 $(function() {  
     $(".box").on("mouseenter mouseleave",function(e) {  
-        var w = $(this).width();  
-        var h = $(this).height();  
-        var x=(e.pageX-this.offsetLeft-(w/2))*(w>h?(h/w):1);  
-        var y=(e.pageY-this.offsetTop-(h/2))*(h>w?(w/h):1);  
-        var dirNum=Math.round((((Math.atan2(y,x)*(180/Math.PI))+180)/90)+3)%4;  
-        var eventType = e.type;  
-        var aPos=[{left:0,top:-h},{left:w,top:0},{left:0,top:h},{left:-w,top:0}];  
+        var w = $(this).width(),
+                h = $(this).height(),  
+                x=(e.pageX-$(this).offset().left-(w/2))*(w>h?(h/w):1),
+                y=(e.pageY-$(this).offset().top-(h/2))*(h>w?(w/h):1),
+                dirNum=Math.round((((Math.atan2(y,x)*(180/Math.PI))+180)/90)+3)%4,
+                eventType = e.type,
+                aPos=[{left:0,top:-h},{left:w,top:0},{left:0,top:h},{left:-w,top:0}];  
         if(eventType == 'mouseenter'){  
             $(".box2").css(aPos[dirNum]).stop(true,false).animate({left:0,top:0},200); 
         }else{  
